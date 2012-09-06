@@ -21,7 +21,7 @@ jinja2.
 
 ## Features
 
-* [[variables]], iteration, array/dict lookups
+* variables, iteration, array/dict lookups
 * it's very fast, as fast or faster than jinja2
 * template inheritance allows you to easily share templates across
   your site, without having to touch code
