@@ -1,0 +1,31 @@
+
+.related {
+  background-color: #F7F7F7;
+  padding: 5px 10px;
+  margin: 0;
+}
+.related-title {
+  color: #888;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 2px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 3px;
+}
+.related ul {
+  padding-left: 10px;
+  margin: 0;
+}
+.related>ul {
+  margin-left: 10px;
+  font-size: 17px;
+}
+.related ul ul {
+  font-size: 15px;
+}
+.related ul ul ul {
+  font-size: 14px;
+}
+.related ul li{
+  margin: 0;
+}
