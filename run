@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ -z "$ADMIN" ]; then
+if [ -n "$ADMIN" ]; then
     args="--read-only"
 fi
 
