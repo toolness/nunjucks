@@ -1,7 +1,7 @@
 [[_TOC_]]
 
-###### Related
+<div class="toc-title">Related</div>
 
-* Oe thing
+* One thing
 * After another
 * lkjlkjkl
