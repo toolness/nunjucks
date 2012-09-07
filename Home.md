@@ -149,7 +149,11 @@ needs a robust, feature-complete port of it.
 
 ### Can I use Nunjucks in client-side javascript?
 
-Not yet, but that is coming in the next version.
+Yes, just include the `nunjucks-dev.js` file in the `browser` folder.
+
+In production, you should use `browser/nunjucks.js` instead (or even better, the minified version with `-min`), and precompile your templates. This file is much smaller and only includes the runtime necessary without the full compiler.
+
+To precompile your templates, use the `precompile.js` script in the `bin` directory.
 
 ### When Nunjucks is available client-side, can I share templates between Python/jinja2 and javascript/nunjucks?
 
