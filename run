@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -z "$ADMIN" ]; then
+    args="--read-only"
+fi
+
+gollumdoc --ref docs --site-title Nunjucks $args
