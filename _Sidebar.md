@@ -1,4 +1,4 @@
-* [Overview]([Home])
-* [API Documentation]([[API]])
-* [Template Designer Documentation]([[templates]])
-* [Credits]([[credits]])
+* [Overview](/Home)
+* [API Documentation](/API)
+* [Template Designer Documentation](/templates)
+* [Credits](/credits)
