@@ -155,7 +155,7 @@ In production, you should use `browser/nunjucks.js` instead (or even better, the
 
 To precompile your templates, use the `precompile.js` script in the `bin` directory.
 
-### When Nunjucks is available client-side, can I share templates between Python/jinja2 and javascript/nunjucks?
+### Can I share templates between Python/jinja2 and javascript/nunjucks?
 
 No, that is not the purpose of this project. There will be subtle
 differences as documented in the "How is nunjucks different than
