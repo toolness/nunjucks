@@ -1,7 +1,7 @@
 [[_TOC_]]
 
 <div class="related">
-  <div class="related-title">Related</div>
+  <div class="related-title">Quick Links</div>
   
   <ul>
     <ul>
