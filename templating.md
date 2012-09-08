@@ -1,4 +1,4 @@
-# Templating System Documentation
+# Templating Documentation
 
 For now, head over to [jinja's
 documentation](http://jinja.pocoo.org/docs/templates/) for templates.
