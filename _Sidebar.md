@@ -11,7 +11,7 @@
   
   <ul>
     <ul>
-      <li><a href="/templating">Templating System Documentation</a></li>
+      <li><a href="/templating">Templating Documentation</a></li>
     </ul>
   </ul>
   
