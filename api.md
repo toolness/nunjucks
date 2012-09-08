@@ -1,11 +1,11 @@
-## API Documentation
+# API Documentation
 
 *This documentation will be improved soon using a documentation generator*
 
 Nunjucks borrows a lot of the same concepts from [jinja2's
 API](http://jinja.pocoo.org/docs/api/).
 
-### Environment
+## Environment
 
 An `Environment` is a central object which handles templates. It is
 configurable, specifying how to load and render templates, and which
@@ -35,7 +35,7 @@ var env = new nunjucks.Environment([new nunjucks.FileSystemLoader('templates'),
                                     new MyLoader()]);
 ```
 
-#### Methods:
+### Methods:
 
 *init(loaders)* - Create an `Environment` object with the template
  loaders. `loaders` can be an array or a single loader. If none is
@@ -49,7 +49,7 @@ specifies if it should compile it immediately (defaults to `false`)
 
 *express(app)* - Install nunjucks into an express app
 
-### Template
+## Template
 
 A `Template` is an object that handles the compiling of template
 strings and rendering them. The `Environment` method `getTemplate`
@@ -60,7 +60,7 @@ var nunjucks = require('nunjucks');
 var tmpl = new nunjucks.Template('Hello {{ username }}');
 ```
 
-#### Methods
+### Methods
 
 *init(src, env, path, upToDate, eagerCompile)* - Create a `Template`
  object. `path` is a string, `upToDate` is a function that returns if
@@ -69,7 +69,7 @@ var tmpl = new nunjucks.Template('Hello {{ username }}');
 
 *render(ctx)* - Render a template with the context. `ctx` is a dict.
 
-### Custom Filters
+## Custom Filters
 
 To install a custom filter, use the `Environment` method `addFilter`.
 A filter is simply a function that takes the target object as the
@@ -97,7 +97,7 @@ A message for you: {{ message|shorten }}
 A message for you: {{ message|shorten(20) }}
 ```
 
-### Custom Tags
+## Custom Tags
 
 Currently you cannot create custom tags. This will be easy to do but I
 want to wait until the parser API stabilizes so that it doesn't change
