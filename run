@@ -4,4 +4,4 @@ if [ -n "$READONLY" ]; then
     args="--read-only"
 fi
 
-gollumdoc --ref docs --site-title 'Nunjucks <img src="/static/mustache-smal.png" />' $args
+gollumdoc --ref docs --site-title 'Nunjucks' $args
