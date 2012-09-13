@@ -3,7 +3,7 @@
 
 It is a
 direct port of the Python-powered [jinja2](http://jinja.pocoo.org/)
-templating engine and aims to be feature-complete with jinja2.
+templating engine and aims to be feature-complete with jinja2. It's targeted at server-side apps but can also be used in the browser.
 
 It was born out of frustration with other javascript templating
 engines. The most popular ones either are ugly and don't abstract
