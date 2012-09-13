@@ -14,9 +14,7 @@ hopes to be a robust, pure javascript, and easily extended port of
 jinja2.
 
 <div style="text-align:center">
-
-![Mustache Logo](/static/mustache-medium.png)
-
+<img src="/static/mustache-medium.png" />
 </div>
 
 ## Installation
