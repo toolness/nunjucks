@@ -15,7 +15,7 @@ hopes to be a robust, pure javascript, and easily extended port of
 jinja2.
 
 <center>
-  <img src="/static/mustache-medium.png" />
+  <img src="/static/mustache-medium.png" class="biglogo" />
 </center>
 
 
