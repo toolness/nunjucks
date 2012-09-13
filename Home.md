@@ -1,8 +1,4 @@
 
-<center>
-  <img src="/static/mustache-medium.png" />
-</center>
-
 Nunjucks is a full featured templating engine for javascript. It is a
 direct port of the Python-powered [jinja2](http://jinja.pocoo.org/)
 templating engine and aims to be feature-complete with jinja2.
@@ -17,6 +13,11 @@ been abandoned. The code is also not Javascript, but Coco, is
 difficult to work on, has bugs, and is missing features. Nunjucks
 hopes to be a robust, pure javascript, and easily extended port of
 jinja2.
+
+<center>
+  <img src="/static/mustache-medium.png" />
+</center>
+
 
 ## Installation
 
