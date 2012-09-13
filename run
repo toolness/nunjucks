@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if [ -n "$ADMIN" ]; then
+if [ -n "$READONLY" ]; then
     args="--read-only"
 fi
 
-gollumdoc --ref docs --site-title Nunjucks $args
+gollumdoc --ref docs --site-title 'Nunjucks' $args
