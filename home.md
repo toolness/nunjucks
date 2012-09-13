@@ -1,5 +1,5 @@
 
-### Nunjucks is a full featured templating engine for javascript.
+<h3>Nunjucks is a full featured templating engine for javascript.</h3>
 
 It is a
 direct port of the Python-powered [jinja2](http://jinja.pocoo.org/)
