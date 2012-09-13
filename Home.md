@@ -13,9 +13,9 @@ difficult to work on, has bugs, and is missing features. Nunjucks
 hopes to be a robust, pure javascript, and easily extended port of
 jinja2.
 
-<div style="text-align:center">
+<center>
 <img src="/static/mustache-medium.png" />
-</div>
+</center>
 
 ## Installation
 
