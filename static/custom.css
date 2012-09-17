@@ -1,6 +1,7 @@
 
 body {
-    background: url(/static/nunjucks-watermark.png) 0 0 no-repeat;
+    /* background: url(/static/nunjucks-watermark.png) 0 0 no-repeat; */
+    min-width: 500px;
 }
 
 .biglogo {
@@ -8,7 +9,7 @@ body {
 }
 
 h1 a, h1 a:visited, h1 a:active {
-    color: black
+    color: white;
 }
 
 .tagline {
@@ -16,13 +17,39 @@ h1 a, h1 a:visited, h1 a:active {
     font-weight: bold;
 }
 
-#wiki-body {
-    float: right;
-    clear: right;
+#wiki-wrapper {
+    width: auto;
 }
 
-#wiki-rightbar {
-    float: left;
+#head-wrapper {
+    /* background-color: #305982; */
+    background: url(/static/bg.png);
+    padding-top: 4em;
+    margin-bottom: 1.5em;
+}
+
+#head {
+    margin: 0;
+    border: 0;
+}
+
+#head h1 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+#head h1 img {
+    margin-bottom: -5px;
+    margin-left: .5em;
+}
+
+#head, #wiki-content, #footer, .page #footer {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul.actions {
+    padding-top: .5em;
 }
 
 .related {
