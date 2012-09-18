@@ -246,4 +246,6 @@ Examples:
 
 Nunjucks has ported most of jinja's filers, so [go look in its docs](http://jinja.pocoo.org/docs/templates/#list-of-builtin-filters) for filters.
 
+These filters are currently **not** implemented:
 
+http://jinja.pocoo.org/docs/templates/#list-of-builtin-filters
