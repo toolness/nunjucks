@@ -19,7 +19,7 @@ been abandoned.
   your site, without having to touch code
 * jinja2-style parsing of code `{{ foo('bar', 1) }}`
 * Lots of builtin tags, filters, and operators
-* Complete browser-side support with precompiled templates and a small 8K runtime
+* Complete [browser-side support](/api#Using-Nunjucks-in-the-Browser) with precompiled templates and a small 8K runtime
 
 View [jinja2's homepage](http://jinja.pocoo.org/) for a full list of
 features. Like that page says, "Jinja is beautiful":
@@ -34,6 +34,8 @@ features. Like that page says, "Jinja is beautiful":
   </ul>
 {% endblock %}
 ```
+
+With [robust browser-side support](/api#Using-Nunjucks-in-the-Browser) you can now render any of your templates server-side or client-side. It doesn't matter anymore, so stop worrying about how your site is divided!
 
 ## Installation
 
