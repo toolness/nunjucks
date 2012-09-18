@@ -75,6 +75,8 @@ var app = express();
 env.express(app);
 ```
 
+For more details, see [Express support](/home#Express) on the overview page.
+
 ### Customizing Variable and Block Tags
 
 If you want different tokens than `{{` and the rest for variables, blocks, and comments, you can pass a dict as the second argument to the constructor which specifies different tokens:
