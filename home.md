@@ -108,28 +108,44 @@ templates live.
 ## How Nunjucks is Different from Jinja2
 
 There are a few differences due to different semantics between
-javascript and Python or missing features. Items marked "todo" are
-ones I intend to implement soon. Other ones may be implemented at some
-point but are more obscure and not as important.
+javascript and Python or missing features. 
 
-Missing features and differences:
+**Missing features that will be implemented (in order of priority):**
 
-* Macros (todo)
-* Whitespace control: `{%-` and `-%}` (todo)
-* The special `self` variable (todo)
-* Autoescaping (todo)
-* inline conditionals: `for if bar else baz` (todo)
-* `for` loop needs special variables like `loop.first` (todo)
-* `set` tag (todo)
-* Installing custom tags (todo)
-* Scoping is not as fine-grained, special modifiers like `with
-  context` does not exist
+* `for` loop needs special variables like `loop.first`
+* Autoescaping
+* Whitespace control: `{%-` and `-%}`
+* Installing custom tags
+* Macros
+* The special `self` variable
+* inline conditionals: `for if bar else baz`
+
+**Missing features that probably won't be implemented:**
+
+* Scoping is not as fine-grained, special modifiers like `with context` does not exist
 * Tests: `if i is divisibleby(3)`
 * Named block end-tags: `{% endblock content %}`
 * Sandboxed mode
 * Line statements: `# for item in seq`
 * Using `block` inside of `for` loops does not work
 * The API is different, especially for writing custom tags. See `API`.
+* Unpacking doesn't really exist, `for k, v in item` only works on dicts
+
+**In addition, the following filters don't exist,** but they will be gradually implemented:
+
+* `dictsort`
+* `filesizeformat`
+* `forceescape`
+* `format`
+* `pprint`
+* `safe`
+* `striptags`
+* `sum`
+* `truncate`
+* `urlize`
+* `wordwrap`
+* `xmlattr`
+
 
 ## FAQ
 
@@ -187,7 +203,6 @@ tests.
 Features needed for v0.1:
 
 * Thorough-ish documentation, especially the API and client-side stuff
-* Builtin filters
 * Display pretty errors
 ** Add a global error handler and attempt to inject nice errors
 * Better express integration
