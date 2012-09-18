@@ -35,6 +35,10 @@ The third example shows how you can chain filters. It would display "Bar", by fi
 
 Nunjucks comes with several [builtin filters](/templating#Builtin-Filters), and you can [add your own](#) as well.
 
+## Template Inheritance
+
+Template inheritance should work exactly like it does in jinja2.[jinja has great documentation on inheritance](http://jinja.pocoo.org/docs/templates/#template-inheritance) that you can read.
+
 ## Tags
 
 Tags are special blocks that perform operations on sections of the template. Nunjucks comes with several builtin.
