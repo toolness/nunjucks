@@ -22,15 +22,13 @@ jinja2.
 
 ## Features
 
-* variables, iteration, array/dict lookups
-* it's very fast, as fast or faster than jinja2
-* template inheritance allows you to easily share templates across
+* Beautiful templates with filters, looping, and all that you'd expect
+* It's very fast, as fast than jinja2
+* Template inheritance allows you to easily share templates across
   your site, without having to touch code
 * jinja2-style parsing of code `{{ foo('bar', 1) }}`
-* operators: `+ - * / < > ==` and more
-* include other templates with `include`
-* ignore template parsing with `raw` tag
-* and more
+* Lots of builtin tags, filters, and operators
+* Complete browser-side support with only a small 8K runtime
 
 View [jinja2's homepage](http://jinja.pocoo.org/) for a full list of
 features. Like that page says, "Jinja is beautiful":
