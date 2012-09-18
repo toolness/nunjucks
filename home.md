@@ -18,7 +18,7 @@ been abandoned.
 * [Template inheritance](/templating#Template-Inheritance) allows you to easily share templates across
   your site, without having to touch code
 * jinja2-style parsing of code `{{ foo('bar', 1) }}`
-* Lots of builtin tags, filters, and operators
+* [Lots](/templating) of builtin tags, filters, and operators
 * Complete [browser-side support](/api#Using-Nunjucks-in-the-Browser) with precompiled templates and a small 8K runtime
 * [Extensive](https://github.com/jlongster/nunjucks/blob/master/tests/test.js) and [thorough](https://github.com/jlongster/nunjucks/blob/master/tests/filters.js) tests
 
