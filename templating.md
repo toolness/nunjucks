@@ -37,7 +37,7 @@ Nunjucks comes with several [builtin filters](/templating#Builtin-Filters), and 
 
 ## Template Inheritance
 
-Template inheritance should work exactly like it does in jinja2.[jinja has great documentation on inheritance](http://jinja.pocoo.org/docs/templates/#template-inheritance) that you can read.
+Template inheritance should work exactly like it does in jinja2. [jinja has great documentation on inheritance](http://jinja.pocoo.org/docs/templates/#template-inheritance) that you can read.
 
 ## Tags
 
