@@ -248,4 +248,15 @@ Nunjucks has ported most of jinja's filers, so [go look in its docs](http://jinj
 
 These filters are currently **not** implemented:
 
-http://jinja.pocoo.org/docs/templates/#list-of-builtin-filters
+* `dictsort`
+* `filesizeformat`
+* `forceescape`
+* `format`
+* `pprint`
+* `safe`
+* `striptags`
+* `sum`
+* `truncate`
+* `urlize`
+* `wordwrap`
+* `xmlattr`
