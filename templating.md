@@ -45,7 +45,7 @@ Just like filters, you will be able to add your own (this functionality is not a
 
 `for` iterates over arrays and dictionaries.
 
-```
+```jinja
 <h1>Posts</h1>
 <ul>
 {% for item in items %}
@@ -58,7 +58,7 @@ The above example lists all the posts using the `title` attribute of each item i
 
 You can also iterate over dictionaries:
 
-```
+```jinja
 {% for ingredient, amount in food %}
   Use {{ amount }} of {{ ingredient }}
 {% endfor %}
@@ -82,7 +82,7 @@ Inside loops, you have access to a few special variables:
 
 `if` tests a condition and lets you selectively display content. It behaves exactly as javascript's `if` behaves.
 
-```
+```jinja
 {% if variable %}
   It is true
 {% endif %}
@@ -92,7 +92,7 @@ If variable is defined and evaluates to true, "It is true" will be displayed. Ot
 
 You can specify alternate conditions with `elif` and `else`:
 
-```
+```jinja
 {% if hungry %}
   I am hungry
 {% elif tired %}
@@ -106,7 +106,7 @@ You can specify alternate conditions with `elif` and `else`:
 
 `set` lets you modify the template context.
 
-```
+```jinja
 {{ username }}
 {% set username = "joe" %}
 {{ username }}
@@ -116,7 +116,7 @@ If `username` was initially "james', this would print "james joe".
 
 You can introduce new variables, and also set multiple at once:
 
-```
+```jinja
 {% set x, y, z = 5 %}
 ```
 
@@ -124,7 +124,7 @@ You can introduce new variables, and also set multiple at once:
 
 `extends` is used to specify template inheritance. The specified template is used as a base template.
 
-```
+```jinja
 {% extends "base.html" %}
 ```
 
@@ -134,7 +134,7 @@ See [jinja's documentation on template inheritance](http://jinja.pocoo.org/docs/
 
 `block` defines a section on the template and identifies it with a name. This is used by template inheritance. Base templates can specify blocks and child templates can override them with new content.
 
-```
+```jinja
 {% block css %}
 <link rel="stylesheet" href="app.css" />
 {% endblock }
@@ -142,7 +142,7 @@ See [jinja's documentation on template inheritance](http://jinja.pocoo.org/docs/
 
 You can even define blocks within looping:
 
-```
+```jinja
 {% for item in items %}
 {% block item %}{{ item }}{% endblock %}
 {% endfor %}
@@ -156,13 +156,13 @@ See [jinja's documentation on template inheritance](http://jinja.pocoo.org/docs/
 
 `include` pulls in other templates in place. It's useful when you need to share smaller chunks across several templates that already inherit other templates.
 
-```
+```jinja
 {% include "item.html" %}
 ```
 
 You can even include templates in the middle of loops:
 
-```
+```jinja
 {% for item in items %}
 {% include "item.html" %}
 {% endfor %}
@@ -174,7 +174,7 @@ This is especially useful for cutting up templates into pieces so that the brows
 
 You can write comments using `{#` and `#}`. Comments are completely stripped out when rendering.
 
-```
+```jinja
 {# Loop through all the users #}
 {% for user in users %}...{% endfor %}
 ```
@@ -203,7 +203,7 @@ Like jinja, nunjucks allows you to operate on values (though this should be rare
 
 You can use them like this:
 
-```
+```jinja
 {{ 2 + 3 }}       (outputs 5)
 {{ 10/5 }}        (outputs 2)
 {{ numItems*2 }}
@@ -222,7 +222,7 @@ Read more in [jinja's math documentation](http://jinja.pocoo.org/docs/templates/
 
 Examples:
 
-```
+```jinja
 {% if numUsers < 5 %}...{% endif %}
 {% if i == 0 %}...{% endif %}
 ```
@@ -236,7 +236,7 @@ Examples:
 
 Examples:
 
-```
+```jinja
 {% if users and showUsers %}...{% endif %}
 {% if i == 0 and not hideFirst %}...{% endif %}
 {% if (x < 5 or y < 5) and foo %}...{% endif %}
