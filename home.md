@@ -95,6 +95,7 @@ javascript and Python or missing features.
 * Macros
 * The special `self` variable
 * inline conditionals: `for if bar else baz`
+* `for` does not support `if not` and `else`
 * The `loop.cycle` method within loops
 * The form `for k, v in item` is more constrained 
   * Unpacking doesn't really exist, it only works on dicts
