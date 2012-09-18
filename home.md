@@ -16,10 +16,6 @@ difficult to work on, has bugs, and is missing features. Nunjucks
 hopes to be a robust, pure javascript, and extensible port of
 jinja2.
 
-## Installation
-
-`npm install nunjucks`
-
 ## Features
 
 * Beautiful templates with filters, looping, and all that you'd expect
@@ -60,6 +56,10 @@ You can use filters to add a little bit of logic to your templates:
 This groups a list of objects by the "category" attribute so that you
 can list them by category. Nunjucks comes with several builtin
 filters (needs documentation) and the ability to add your own.
+
+## Installation
+
+`npm install nunjucks`
 
 ## Usage
 
