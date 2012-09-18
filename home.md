@@ -70,15 +70,13 @@ Assuming your templates are in the `templates` folder:
 
 ```js
 var nunjucks = require('nunjucks');
-var loaders = nunjucks.loaders;
 var express = require('express');
 
-var env = new nunjucks.Environment(new loaders.FileSystemLoader('templates'));
+var env = new nunjucks.Environment(new nunjucks.FileSystemLoader('views'));
 env.express(app);
 ```
 
-The `FileSystemLoader` takes a path, so change it to wherever your
-templates live.
+The `FileSystemLoader` takes a path, so change it to wherever your templates live.
 
 ## Community
 
