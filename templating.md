@@ -242,6 +242,14 @@ Examples:
 {% if (x < 5 or y < 5) and foo %}...{% endif %}
 ```
 
+### Function Calls
+
+If you have passed a javascript method to your template, you can call it like normal.
+
+```jinja
+{{ foo(1, 2, 3) }}
+```
+
 ## Builtin Filters
 
 Nunjucks has ported most of jinja's filers, so [go look in its docs](http://jinja.pocoo.org/docs/templates/#list-of-builtin-filters) for filters.
