@@ -227,4 +227,11 @@ var el = $(env.render('item.html', { name: 'james' }));
 $('body').append(el);
 ```
 
-The development version loads the template every time it's rendered. There will an option to turn this off in future versions, but it's very helpful for changes to be automatically viewable in some cases.
+By default, the development version loads the template every time it's rendered. It's very helpful for changes to be automatically viewable in some cases, but you can turn it off by passing `true` when constructing the `HttpLoader` as a second argument:
+
+```js
+nunjucks.env = new nunjucks.Environment(
+    // Cache templates and never reload them
+    new nunjucks.loaders.HttpLoader('/views', true);
+);
+```
