@@ -103,3 +103,7 @@ Currently you cannot create custom tags. This will be easy to do but I
 want to wait until the parser API stabilizes so that it doesn't change
 after extensions are created.
 
+
+## Using Nunjucks in the Browser
+
+Blah blah blah
