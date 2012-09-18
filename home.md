@@ -35,23 +35,6 @@ features. Like that page says, "Jinja is beautiful":
 {% endblock %}
 ```
 
-You can use filters to add a little bit of logic to your templates:
-
-```
-{% for category, members in items | groupby('category') %}
-  <h1>{{ name }}</h1>
-  <ul>
-  {% for item in members %}
-    <li>{{ item.description }}</li>
-  {% endfor %}
-  </ul>
-{% endfor %}
-```
-
-This groups a list of objects by the "category" attribute so that you
-can list them by category. Nunjucks comes with several builtin
-filters (needs documentation) and the ability to add your own.
-
 ## Installation
 
 `npm install nunjucks`
