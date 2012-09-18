@@ -119,6 +119,7 @@ javascript and Python or missing features.
 * Macros
 * The special `self` variable
 * inline conditionals: `for if bar else baz`
+* loop.cycle within loops
 
 **Missing features that probably won't be implemented:**
 
