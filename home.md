@@ -58,7 +58,7 @@ console.log(tmpl.render({ username: "james" }));
 ```
 
 You can use an environment which allows you to fetch files from the
-file system. See the [`Environment`](#environment) class for more details.
+file system. See the [`Environment`](/api#Environment) class for more details.
 
 ```js
 var env = new nunjucks.Environment();
@@ -118,9 +118,9 @@ needs a robust, feature-complete port of it.
 
 Yes, just include the `nunjucks-dev.js` file in the `browser` folder.
 
-In production, you should use `browser/nunjucks.js` instead (or even better, the minified version with `-min`), and precompile your templates. This file is much smaller and only includes the runtime necessary without the full compiler.
+In production, you should use `browser/nunjucks.js` instead (or even better, the minified version with `-min`), and precompile your templates. This file is much smaller and only includes the runtime necessary without the full compiler. You need to precompile your templates.
 
-To precompile your templates, use the `precompile.js` script in the `bin` directory.
+See [Using Nunjucks in the Browser](http://localhost:4567/api#Using-Nunjucks-in-the-Browser) for more details.
 
 ### Can I share templates between Python/jinja2 and javascript/nunjucks?
 
