@@ -8,13 +8,13 @@ jinja2](#how-nunjucks-is-different-from-jinja2).
 
 A variable looks up a value from the template context. If you wanted to simply display a variable, you would do:
 
-```
+```jinja
 {{ username }}
 ```
 
 This looks up `username` from the context and displays it. Variable names can have dots in them which lookup properties, just like javascript. You can also use the square bracket syntax.
 
-```
+```jinja
 {{ foo.bar }}
 {{ foo["bar"] }}
 ```
@@ -25,7 +25,7 @@ These two forms to the exact same thing, just like javascript.
 
 Filters are essentially functions that can be applied to variables. They are called with a pipe operator (`|`) and can take arguments.
 
-```
+```jinja
 {{ foo | title }}
 {{ foo | join(",") }}
 {{ foo | replace("foo", "bar") | capitalize }}
