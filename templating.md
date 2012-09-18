@@ -1,14 +1,8 @@
 # Templating Documentation
 
-For now, head over to [jinja's
-documentation](http://jinja.pocoo.org/docs/templates/) for templates.
-Nunjucks supports most of jinja's features, and those docs are
-very good. Nunjucks will get better docs over time.
-
-Please read ["How Nunjucks is Different from
-Jinja2"](#how-nunjucks-is-different-from-jinja2) to see what features
-are missing. Nunjucks is being quickly developed and will implement
-missing features over time.
+This is a basic overview of the features available in nunjucks. You should refer to [jinja's
+documentation](http://jinja.pocoo.org/docs/templates/) for more in-depth documentation, but keep in mind [how nunjucks is different from
+jinja2](#how-nunjucks-is-different-from-jinja2).
 
 ## Variables
 
@@ -43,7 +37,9 @@ Nunjucks comes with several (builtin filters)[#], and you can (add your own)[#] 
 
 ## Tags
 
-Tags are special blocks that perform operations on sections of the template. Nunjucks comes with several builtin:
+Tags are special blocks that perform operations on sections of the template. Nunjucks comes with several builtin.
+
+Just like filters, you will be able to add your own (this functionality is not available yet).
 
 ### For
 
@@ -84,22 +80,170 @@ Inside loops, you have access to a few special variables:
 
 ### If
 
+`if` tests a condition and lets you selectively display content. It behaves exactly as javascript's `if` behaves.
+
+```
+{% if variable %}
+  It is true
+{% endif %}
+```
+
+If variable is defined and evaluates to true, "It is true" will be displayed. Otherwise, nothing will be.
+
+You can specify alternate conditions with `elif` and `else`:
+
+```
+{% if hungry %}
+  I am hungry
+{% elif tired %}
+  I am tired
+{% else %}
+  I am good!
+{% endif %}
+```
+
 ### Set
+
+`set` lets you modify the template context.
+
+```
+{{ username }}
+{% set username = "joe" %}
+{{ username }}
+```
+
+If `username` was initially "james', this would print "james joe".
+
+You can introduce new variables, and also set multiple at once:
+
+```
+{% set x, y, z = 5 %}
+```
 
 ### Extends
 
+`extends` is used to specify template inheritance. The specified template is used as a base template.
+
+```
+{% extends "base.html" %}
+```
+
+See [jinja's documentation on template inheritance](http://jinja.pocoo.org/docs/templates/#template-inheritance) for more information.
+
 ### Block
+
+`block` defines a section on the template and identifies it with a name. This is used by template inheritance. Base templates can specify blocks and child templates can override them with new content.
+
+```
+{% block css %}
+<link rel="stylesheet" href="app.css" />
+{% endblock }
+```
+
+You can even define blocks within looping:
+
+```
+{% for item in items %}
+{% block item %}{{ item }}{% endblock %}
+{% endfor %}
+```
+
+Child templates can override the `item` block and change how it is displayed.
+
+See [jinja's documentation on template inheritance](http://jinja.pocoo.org/docs/templates/#template-inheritance) for more information.
 
 ### Include
 
-Just like filters, you will be able to add your own (this functionality is not available yet).
+`include` pulls in other templates in place. It's useful when you need to share smaller chunks across several templates that already inherit other templates.
+
+```
+{% include "item.html" %}
+```
+
+You can even include templates in the middle of loops:
+
+```
+{% for item in items %}
+{% include "item.html" %}
+{% endfor %}
+```
+
+This is especially useful for cutting up templates into pieces so that the browser-side environment can render the small chunks when it needs to change the page.
+
+## Comments
+
+You can write comments using `{#` and `#}`. Comments are completely stripped out when rendering.
+
+```
+{# Loop through all the users #}
+{% for user in users %}...{% endfor %}
+```
 
 ## Expressions
 
-You can also embed literal objects within filters and tags. 
+You can use many types of literal expressions that you are used to in javascript.
+
+* Strings: `"How are you?"`, `'How are you?'`
+* Numbers: `40`, `30.123`
+* Arrays: `[1, 2, "array"]`
+* Dicts: `{ one: 1, two: 2 }`
+* Boolean: `true`, `false`
 
 ### Math
+
+Like jinja, nunjucks allows you to operate on values (though this should be rarely used). The following operators are available:
+
+* Addition: `+`
+* Subtraction: `-`
+* Division: `/`
+* Division and integer truncation: `//`
+* Division remainder: `%`
+* Multiplication: `*`
+* Power: `**`
+
+You can use them like this:
+
+```
+{{ 2 + 3 }}       (outputs 5)
+{{ 10/5 }}        (outputs 2)
+{{ numItems*2 }}
+```
+
+Read more in [jinja's math documentation](http://jinja.pocoo.org/docs/templates/#math).
+
 ### Comparisons
+
+* `==`
+* `!=`
+* `>`
+* `>=`
+* `<`
+* `<=`
+
+Examples:
+
+```
+{% if numUsers < 5 %}...{% endif %}
+{% if i == 0 %}...{% endif %}
+```
+
 ### Logic
 
-## Comments
+* `and`
+* `or`
+* `not`
+* Use parentheses to group expressions
+
+Examples:
+
+```
+{% if users and showUsers %}...{% endif %}
+{% if i == 0 and not hideFirst %}...{% endif %}
+{% if (x < 5 or y < 5) and foo %}...{% endif %}
+```
+
+## Builtin Filters
+
+Nunjucks has ported most of jinja's filers, so [go look in its docs](http://jinja.pocoo.org/docs/templates/#list-of-builtin-filters) for filters.
+
+
