@@ -33,7 +33,7 @@ Filters are essentially functions that can be applied to variables. They are cal
 
 The third example shows how you can chain filters. It would display "Bar", by first replacing "foo" with "bar" and then capitalizing it.
 
-Nunjucks comes with several (builtin filters)[#], and you can (add your own)[#] as well.
+Nunjucks comes with several [builtin filters](#Builtin-Filters), and you can [add your own](#) as well.
 
 ## Tags
 
