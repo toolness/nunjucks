@@ -119,7 +119,15 @@ javascript and Python or missing features.
 * Macros
 * The special `self` variable
 * inline conditionals: `for if bar else baz`
-* `loop.cycle` within loops
+* The `loop.cycle` method within loops
+* The form `for k, v in item` is more constrained 
+  * Unpacking doesn't really exist, it only works on dicts
+  * Some of the special loop variables don't exist:
+      * `loop.revindex`
+      * `loop.revindex0`
+      * `loop.last`
+      * `loop.length`
+  * Note that these exist when looping over arrays with `for item in items`
 
 **Missing features that probably won't be implemented:**
 
@@ -130,7 +138,6 @@ javascript and Python or missing features.
 * Line statements: `# for item in seq`
 * Using `block` inside of `for` loops does not work
 * The API is different, especially for writing custom tags. See `API`.
-* Unpacking doesn't really exist, `for k, v in item` only works on dicts
 
 **In addition, the following filters don't exist,** but they will be gradually implemented:
 
