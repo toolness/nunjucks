@@ -81,6 +81,16 @@ env.express(app);
 
 The `FileSystemLoader` takes a path, so change it to wherever your templates live.
 
+Note that you don't need to set the `view engine`, `view cache`, or `views` settings for the app. Nunjucks does all this for you.
+
+You can simple use `res.render` like normally:
+
+```
+app.get('/', function(req, res) {
+  res.render('index.html');
+});
+```
+
 ## Community
 
 If you have any questions, or want to file a bug, please do so as a [github issue on the project](https://github.com/jlongster/nunjucks/issues).
