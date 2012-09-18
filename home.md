@@ -127,8 +127,8 @@ there. Depending on what features you use, you may need to make small
 tweaks. The biggest hurdle will be porting any custom filters or tags
 to javascript.
 
-Read the [How Nunjucks is Different from Jinja2](#wiki-jinja2-differences)
-section for more information on how nunjucks differs from jinja2.
+Read the [How Nunjucks is Different from Jinja2](/differences)
+page for more information on how nunjucks differs from jinja2.
 
 ### What are the differences between this and jinja2, if any?
 
