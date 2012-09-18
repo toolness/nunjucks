@@ -130,9 +130,16 @@ to javascript.
 Read the [How Nunjucks is Different from Jinja2](#wiki-jinja2-differences)
 section for more information on how nunjucks differs from jinja2.
 
+### What are the differences between this and jinja2, if any?
+
+There are a few subtle differences that mostly stem from different semantics between Python and javascript. There are also several small features that I still need to implement.
+
+There is a page which gives a [detailed description of all differences](/differences).
+
 ## Status
 
-All of the features that will be in v0.1 have been ported over. I am
+All of the features that will be in v0.1 have been ported
+over. I am
 currently testing the codebase and letting it solidify before I make
 the first release. The focus is now documentation, benchmarks, and
 tests.
