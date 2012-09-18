@@ -1,7 +1,5 @@
 # API Documentation
 
-*This documentation will be improved soon using a documentation generator*
-
 Nunjucks borrows a lot of the same concepts from [jinja2's
 API](http://jinja.pocoo.org/docs/api/).
 
@@ -19,10 +17,13 @@ The `Environment` constructor takes an optional list of
 loaders. Loaders specify how to load templates, whether its from the
 file system, a database, or some other source.
 
+If no loaders are specified, it defaults to one depending on the context:
+
+* **In node.js**, it uses a FileSystemLoader with the current working directory
+* **In the browser**, it uses an HttpLoader with `/views` as the base URL for templates
+
 ```js
 var nunjucks = require('nunjucks');
-
-// Without arguments, the environment defaults to a FileSystemLoader
 // with the current working directory
 var env = new nunjucks.Environment();
 
@@ -34,6 +35,30 @@ var env = new nunjucks.Environment(new nunjucks.FileSystemLoader('templates'));
 var env = new nunjucks.Environment([new nunjucks.FileSystemLoader('templates'),
                                     new MyLoader()]);
 ```
+
+### Customizing Variable and Block Tags
+
+If you want different tokens than `{{` and the rest for variables, blocks, and comments, you can pass a dict as the second argument to the constructor which specifies different tokens:
+
+```
+var env = new nunjucks.Environment(null, {
+  blockStart: '<%',
+  blockEnd: '%>',
+  variableStart: '<$',
+  variableEnd: '$>',
+  commentStart: '<#',
+  commentEnd: '#>'
+});
+```
+
+Using this environment, templates will look like this:
+
+```
+<ul>
+<% for item in items %>
+  <li><$ item $></li>
+<% endfor %>
+</ul>
 
 ### Methods:
 
