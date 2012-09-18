@@ -14,7 +14,7 @@ been abandoned.
 ## Features
 
 * Beautiful templates with filters, looping, and all that you'd expect
-* It's very fast, as fast than jinja2
+* It's very fast, as fast as jinja2
 * Template inheritance allows you to easily share templates across
   your site, without having to touch code
 * jinja2-style parsing of code `{{ foo('bar', 1) }}`
