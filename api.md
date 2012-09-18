@@ -58,7 +58,7 @@ tmpl.render({ foo: 'bar' });
 
 The `render` method is a shortcut for rendering templates.
 
-```
+```js
 env.render('page.html', { foo: 'bar' });
 
 // is equal to
@@ -70,7 +70,7 @@ env.getTemplate('page.html').render({ foo: 'bar' });
 
 Nunjucks comes with special [express](http://expressjs.com/) support. Simple call the `express` method and pass the app and everything will be set up for you.
 
-```
+```js
 var app = express();
 env.express(app);
 ```
@@ -79,7 +79,7 @@ env.express(app);
 
 If you want different tokens than `{{` and the rest for variables, blocks, and comments, you can pass a dict as the second argument to the constructor which specifies different tokens:
 
-```
+```js
 var env = new nunjucks.Environment(null, {
   blockStart: '<%',
   blockEnd: '%>',
@@ -113,7 +113,7 @@ var tmpl = new nunjucks.Template('Hello {{ username }}');
 
 Call the `render` method to render it with a context.
 
-```
+```js
 tmpl.render({ username: "James" });
 
 // Displays "Hello James"
@@ -141,7 +141,7 @@ This adds a filter `shorten` which returns the first `count`
 characters in a string, with `count` defaulting to 5. Here is how it
 is used:
 
-```
+```jinja
 {# Show the first 5 characters #}
 A message for you: {{ message|shorten }}
 
@@ -209,9 +209,7 @@ You don't want to change your javascript to specialize for the production versio
 if(!nunjucks.env) {
     // If not precompiled, create an environment with an HTTP
     // loader
-    nunjucks.env = new nunjucks.Environment(
-        new nunjucks.loaders.HttpLoader('/views')
-    );
+    nunjucks.env = new nunjucks.Environment(new nunjucks.HttpLoader('/views'));
 }
 
 // Define a shortcut if you want
@@ -232,6 +230,6 @@ By default, the development version loads the template every time it's rendered.
 ```js
 nunjucks.env = new nunjucks.Environment(
     // Cache templates and never reload them
-    new nunjucks.loaders.HttpLoader('/views', true);
+    new nunjucks.HttpLoader('/views', true);
 );
 ```
