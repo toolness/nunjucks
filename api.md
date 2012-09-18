@@ -176,7 +176,7 @@ Once one of these files is loaded in the browser, a global object named `nunjuck
 
 When you use `nunjucks-min.js` in production, **you have to precompile your templates**. Precompilation simply generates the javascript for your template once, and you save it and only load the generated code into the page. This is much faster than compiling templates every time the page loads.
 
-Nunjucks comes with a script named `nunjucks-precompile` to perform this task. You pass it a folder and it compiles all of them and dumps javascript to standard out, which you should pipe into a single js file.
+Nunjucks comes with a script named `nunjucks-precompile` to perform this task (make sure you have `node_modules/.bin` in your `$PATH`). You pass it a folder and it compiles all of them and dumps javascript to standard out, which you should pipe into a single js file.
 
 ```
 $ nunjucks-precompile
