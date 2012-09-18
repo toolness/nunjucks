@@ -88,7 +88,6 @@ javascript and Python or missing features.
 
 **Missing features that will be implemented (in order of priority):**
 
-* `for` loop needs special variables like `loop.first`
 * Autoescaping
 * Whitespace control: `{%-` and `-%}`
 * Installing custom tags
