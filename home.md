@@ -1,5 +1,5 @@
 
-<div class="tagline">Nunjucks is a <span class="highlight">full featured templating engine</span> for javascript.</div>
+<div class="tagline">[Nunjucks](https://github.com/jlongster/nunjucks) is a <span class="highlight">full featured templating engine</span> for javascript.</div>
 
 It is a
 direct port of the Python-powered [jinja2](http://jinja.pocoo.org/)
