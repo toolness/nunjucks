@@ -24,7 +24,7 @@ been abandoned.
 View [jinja2's homepage](http://jinja.pocoo.org/) for a full list of
 features. Like that page says, "Jinja is beautiful":
 
-```
+```jinja
 {% extends "layout.html" %}
 {% block body %}
   <ul>
