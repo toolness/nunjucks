@@ -80,7 +80,10 @@ env.express(app);
 The `FileSystemLoader` takes a path, so change it to wherever your
 templates live.
 
-<a name="jinja2-differences"></a>
+## Community
+
+If you have any questions, or want to file a bug, please do so as a [github issue on the project](https://github.com/jlongster/nunjucks/issues).
+
 ## How Nunjucks is Different from Jinja2
 
 There are a few differences due to different semantics between
