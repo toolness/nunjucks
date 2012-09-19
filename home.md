@@ -69,8 +69,8 @@ console.log(tmpl.render({ username: "james" }));
 
 ## Express
 
-You can also tell nunjucks to install itself in your express app.
-Assuming your templates are in the `templates` folder:
+You can also tell nunjucks to install itself in your [express](http://expressjs.com/) app.
+Assuming your templates are in the `views` folder:
 
 ```js
 var nunjucks = require('nunjucks');
@@ -148,24 +148,6 @@ There are a few subtle differences that mostly stem from different semantics bet
 
 There is a page which gives a [detailed description of all differences](/differences).
 
-## Status
+### Status
 
-All of the features that will be in v0.1 have been ported
-over. I am
-currently testing the codebase and letting it solidify before I make
-the first release. The focus is now documentation, benchmarks, and
-tests.
-
-Features needed for v0.1:
-
-* Thorough-ish documentation, especially the API and client-side stuff
-* Display pretty errors
-** Add a global error handler and attempt to inject nice errors
-* Better express integration
-* Benchmarks (it's fast, how to prove it?)
-
-Features needed for v0.2:
-
-* Macros, a few other missing jinja2 constructs
-* Even more thorough documentation
-* Autoescaping
+See a prioritized list of features to be implemented on the [missing features](/differences) page.
