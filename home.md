@@ -148,6 +148,6 @@ There are a few subtle differences that mostly stem from different semantics bet
 
 There is a page which gives a [detailed description of all differences](/differences).
 
-### Status
+## Status
 
 See a prioritized list of features to be implemented on the [missing features](/differences) page.
