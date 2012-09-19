@@ -35,6 +35,11 @@ h1 a, h1 a:visited, h1 a:active {
 
 #head h1 {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    color: white;
+}
+
+.history h1 strong {
+    color: #cccccc;
 }
 
 #head h1 img {
@@ -42,7 +47,13 @@ h1 a, h1 a:visited, h1 a:active {
     margin-left: .5em;
 }
 
-#head, #wiki-content, #footer, .page #footer {
+#head,
+#wiki-content,
+#footer,
+#wiki-history,
+#pages,
+.page #footer
+{
     width: 80%;
     margin-left: auto;
     margin-right: auto;
