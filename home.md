@@ -120,7 +120,7 @@ Yes, just include the `nunjucks-dev.js` file in the `browser` folder.
 
 In production, you should use `browser/nunjucks.js` instead (or even better, the minified version with `-min`), and precompile your templates. This file is much smaller and only includes the runtime necessary without the full compiler. You need to precompile your templates.
 
-See [Using Nunjucks in the Browser](/api#Using-Nunjucks-in-the-Browser) for more details.
+See [Using Nunjucks in the Browser](http://localhost:4567/api#Using-Nunjucks-in-the-Browser) for more details.
 
 ### Can I share templates between Python/jinja2 and javascript/nunjucks?
 
