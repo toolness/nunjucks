@@ -23,8 +23,7 @@ been abandoned.
 * [Extensive](https://github.com/jlongster/nunjucks/blob/master/tests/test.js) and [thorough](https://github.com/jlongster/nunjucks/blob/master/tests/filters.js) tests
 * Line and column number tracking
 
-View [jinja2's homepage](http://jinja.pocoo.org/) for a full list of
-features. Like that page says, "Jinja is beautiful":
+Like [jinja2's homepage](http://jinja.pocoo.org/) says, "Jinja is beautiful":
 
 ```jinja
 {% extends "layout.html" %}
