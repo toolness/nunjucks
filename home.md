@@ -103,7 +103,7 @@ I've been unhappy with any of the existing ones for javascript.
 Mustache is great, but it's not really built to be the main templating
 system of a large app. It lacks sophisticated features such as
 template inheritance, and the need is obviously there as seen in this
-[github issue](https://github.com/mustache/spec/issues/38).
+[github issue](https://github.com/mustache/spec/issues/38). [hogan.js](http://twitter.github.com/hogan.js/) implements an extension for inheritance, but personally I find it bulky.
 
 EJS is really ugly and forces you to put too much logic in templates.
 Jade is cool but forces a completely difference whitespace-based
