@@ -21,6 +21,7 @@ been abandoned.
 * [Lots](/templating) of builtin tags, filters, and operators
 * Complete [browser-side support](/api#Using-Nunjucks-in-the-Browser) with precompiled templates and a small 8K runtime
 * [Extensive](https://github.com/jlongster/nunjucks/blob/master/tests/test.js) and [thorough](https://github.com/jlongster/nunjucks/blob/master/tests/filters.js) tests
+* Line and column number tracking
 
 View [jinja2's homepage](http://jinja.pocoo.org/) for a full list of
 features. Like that page says, "Jinja is beautiful":
