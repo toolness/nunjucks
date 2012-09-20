@@ -29,7 +29,6 @@ javascript and Python or missing features.
 * Named block end-tags: `{% endblock content %}`
 * Sandboxed mode
 * Line statements: `# for item in seq`
-* Using `block` inside of `for` loops does not work
 * The API is different, especially for writing custom tags. See `API`.
 
 **In addition, the following filters don't exist,** but they will be gradually implemented:
