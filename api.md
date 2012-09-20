@@ -17,27 +17,46 @@ The `Environment` constructor takes an optional list of
 loaders. Loaders specify how to load templates, whether its from the
 file system, a database, or some other source.
 
-If no loaders are specified, it defaults to one depending on the context:
+The type of loader depends on the environment.
 
-* **In node.js**, it uses a FileSystemLoader with the current working directory
-* **In the browser**, it uses an HttpLoader with `/views` as the base URL for templates
+#### In node.js
+
+The `FileSystemLoader` is available. This takes a path to load templates from. If you don't pass any loaders, a `FileSystemLoader` is created pointing to the current working directory.
 
 ```js
 var nunjucks = require('nunjucks');
 
-// Uses the default loader
+// Loads templates from the current working directory
 var env = new nunjucks.Environment();
 
-// Load templates from the 'templates' folder (only works in node.js)
-var env = new nunjucks.Environment(new nunjucks.FileSystemLoader('templates'));
+// Loads templates from the "views" folder
+var env = new nunjucks.Environment(new nunjucks.FileSystemLoader('views'));
+```
 
-// Load templates at /views (only works in the browser)
-var env = new nunjucks.Environment(new nunjucks.HttpLoader('/views'))
+#### In the Browser
 
-// Multiple loaders
-// The environment will look in templates first and then try loading
+The `HttpLoader` is available. This takes a URL to load templates from (must be the same domain, relative URLs are recommended). If you don't pass any loaders, a `HttpLoader` is created with the `/views` URL.
+
+```
+var nunjucks = require('nunjucks');
+
+// Loads templates from /views
+var env = new nunjucks.Environment();
+
+// Load templates from /templates
+var env = new nunjucks.Environment(new nunjucks.HttpLoader('/templates'))
+```
+
+#### Multiple Loaders
+
+You can also specify multiple loaders and it will look through them in order. This is useful if you want to specify several different template paths, or use a custom loader.
+
+```
+// The environment will look in templates first,
+// then foo/templates, and then try loading
 // from your special MyLoader class
 var env = new nunjucks.Environment([new nunjucks.FileSystemLoader('templates'),
+                                    new nunjucks.FileSystemLoader('foo/templates'),
                                     new MyLoader()]);
 ```
 
