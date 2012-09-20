@@ -42,6 +42,8 @@ With [robust browser-side support](/api#Using-Nunjucks-in-the-Browser) you can n
 
 `npm install nunjucks`
 
+<span class="small">There are zero dependencies so node compatibility should be good, not sure exactly what version it requires but it's known to work on v0.7.1.</span>
+
 ## Usage
 
 First, require nunjucks:
