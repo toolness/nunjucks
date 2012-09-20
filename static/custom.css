@@ -95,6 +95,10 @@ ul.actions {
     margin-top: 1em;
 }
 
+.small {
+    font-size: .8em;
+}
+
 /* .related { */
 /*   background-color: #F7F7F7; */
 /*   padding: 5px 10px; */
