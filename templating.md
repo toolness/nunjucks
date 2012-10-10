@@ -106,9 +106,32 @@ You can specify alternate conditions with `elif` and `else`:
 {% endif %}
 ```
 
+### Macro
+
+`macro` allows you to define reusable chunks of content. It is similar to a function in a programming language. Here's an example:
+
+```jinja
+{% macro field(name, value='', type='text') %}
+<div class="field">
+  <input type="{{ type }}" name="{{ name }}"
+         value="{{ value | escape }}" />
+</div>
+{% endmacro %}
+```
+Now `field` is available to be called like a normal function:
+
+```jinja
+{{ field('user') }}
+{{ field('pass', type='password') }}
+```
+
+Keyword/default arguments are available. You cannot pass them to set arguments, i.e. all positional arguments must be passed first. You cannot pass `name='user'` above. See [keyword arguments](#Keyword-Arguments).
+
+You can [import](#import) macros from other templates, allowing you to reuse them freely across your project.
+
 ### Set
 
-`set` lets you modify the template context.
+`set` lets you create/modify a variable.
 
 ```jinja
 {{ username }}
@@ -123,6 +146,8 @@ You can introduce new variables, and also set multiple at once:
 ```jinja
 {% set x, y, z = 5 %}
 ```
+
+If `set` is used at the top-level, it changes the value of the global template context. If used inside scoped blocks, like `for`, `include`, and others, it only modifies the current scope.
 
 ### Extends
 
@@ -173,6 +198,97 @@ You can even include templates in the middle of loops:
 ```
 
 This is especially useful for cutting up templates into pieces so that the browser-side environment can render the small chunks when it needs to change the page.
+
+### Import
+
+`import` loads a different template and allows you to access its exported values. Macros and top-level assignments (done with [`set`](#set)) are exported from templates, allowing you to access them in a different template.
+
+Imported templates are processed without the current context, so they do not have access to any of the current template variables.
+
+Let's start with a template called `forms.html` that has the following in it:
+
+```jinja
+{% macro field(name, value='', type='text') %}
+<div class="field">
+  <input type="{{ type }}" name="{{ name }}"
+         value="{{ value | escape }}" />
+</div>
+{% endmacro %}
+
+{% macro label(text) %}
+<div>
+  <label>{{ text }}</label>
+</div>
+{% endmacro %}
+```
+
+We can import this template and bind all of its exported values to a variable so that we can use it:
+
+```jinja
+{% import "forms.html" as forms %}
+
+{{ forms.label('Username') }}
+{{ forms.input('user') }}
+{{ forms.label('Password') }}
+{{ forms.input('pass', type='password') }}
+```
+
+You can also import specific values from a template into the current namespace with `from import`:
+
+```jinja
+{% from "forms.html" import input, label as description %}
+
+{{ description('Username') }}
+{{ input('user') }}
+{{ description('Password') }}
+{{ input('pass', type='password') }}
+```
+
+## Keyword Arguments
+
+jinja2 uses Python's keyword arguments support to allow keyword arguments in functions and macros. Nunjucks supports keyword arguments as well by introduction a new calling convention.
+
+Keyword arguments look like this:
+
+```jinja
+{{ foo(1, 2, bar=3, baz=4) }}
+```
+
+`bar` and `baz` are keyword arguments. Nunjucks converts them into a hash and passes it as the last argument. It's equivalent to this call:
+
+```js
+foo(1, 2, { bar: 3, baz: 4})
+```
+
+If you are writing filters or passing functions into the context, you can use this convention to support keyword arguments. Simply take a hash as your last argument and you'll get any keyword arguments, or null if none are passed.
+
+Here is a filter `foo` that uses keyword arguments:
+
+```js
+env.registerFilter('foo', function(num, x, y, kwargs) {
+   return num + (kwargs.bar || 10);
+})
+```
+
+The template can use it like this:
+
+```jinja2
+{{ 5 | foo(1, 2) }}          -> 15
+{{ 5 | foo(1, 2, bar=3) }}   -> 8
+```
+
+Macros allow you to also use keyword arguments in the definition. Nunjucks automatically maps the keyword arguments to the ones defined with the macro.
+
+```
+{% macro foo(x, y, z=5, w=6) %}
+{{ z }}, {{ w}}
+{% endmacro %}
+
+{{ foo(1, 2) }}        -> 5, 6
+{{ foo(1, 2, w=10) }}  -> 5, 10
+```
+
+Note that you *must* pass all of the positional arguments before keyword arguments (`foo(1)` is valid but `foo(1, w=10)` is not). Also, you cannot set a positional argument with a keyword argument like you can in Python (such as `foo(1, y=1)`)
 
 ## Comments
 
