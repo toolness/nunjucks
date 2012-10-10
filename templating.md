@@ -272,7 +272,7 @@ env.registerFilter('foo', function(num, x, y, kwargs) {
 
 The template can use it like this:
 
-```jinja2
+```jinja
 {{ 5 | foo(1, 2) }}          -> 15
 {{ 5 | foo(1, 2, bar=3) }}   -> 8
 ```
