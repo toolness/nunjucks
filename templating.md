@@ -254,7 +254,7 @@ Keyword arguments look like this:
 {{ foo(1, 2, bar=3, baz=4) }}
 ```
 
-`bar` and `baz` are keyword arguments. Nunjucks converts them into a hash and passes it as the last argument. It's equivalent to this call:
+`bar` and `baz` are keyword arguments. Nunjucks converts them into a hash and passes it as the last argument. It's equivalent to this call in javascript:
 
 ```js
 foo(1, 2, { bar: 3, baz: 4})
