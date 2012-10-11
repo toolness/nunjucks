@@ -62,7 +62,7 @@ var env = new nunjucks.Environment([new nunjucks.FileSystemLoader('templates'),
 
 ### Registering custom filters
 
-Call the `addFilter` method on the environment to register a filter. See [Custom Filters](#Custom-Filters).
+Call the `addFilter` method on the environment to register a filter. See <a href="#Custom-Filters">Custom Filters</a>.
 
 ### Loading a template
 
