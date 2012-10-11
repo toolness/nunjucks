@@ -125,9 +125,9 @@ Now `field` is available to be called like a normal function:
 {{ field('pass', type='password') }}
 ```
 
-Keyword/default arguments are available. You cannot pass them to set arguments, i.e. all positional arguments must be passed first. You cannot pass `name='user'` above. See [keyword arguments](#Keyword-Arguments).
+Keyword/default arguments are available. See [keyword arguments](/templating#Keyword-Arguments) for a more detailed explanation.
 
-You can [import](#import) macros from other templates, allowing you to reuse them freely across your project.
+You can [import](/templating#import) macros from other templates, allowing you to reuse them freely across your project.
 
 ### Set
 
@@ -246,7 +246,7 @@ You can also import specific values from a template into the current namespace w
 
 ## Keyword Arguments
 
-jinja2 uses Python's keyword arguments support to allow keyword arguments in functions and macros. Nunjucks supports keyword arguments as well by introduction a new calling convention.
+jinja2 uses Python's keyword arguments support to allow keyword arguments in functions, filters, and macros. Nunjucks supports keyword arguments as well by introduction a new calling convention.
 
 Keyword arguments look like this:
 
@@ -260,35 +260,36 @@ Keyword arguments look like this:
 foo(1, 2, { bar: 3, baz: 4})
 ```
 
-If you are writing filters or passing functions into the context, you can use this convention to support keyword arguments. Simply take a hash as your last argument and you'll get any keyword arguments, or null if none are passed.
+Since this is a standard calling convention, it works for all functions and filters if they are written to expect them. [Read more](/api#Keyword-Arguments) about this in the API section.
 
-Here is a filter `foo` that uses keyword arguments:
-
-```js
-env.registerFilter('foo', function(num, x, y, kwargs) {
-   return num + (kwargs.bar || 10);
-})
-```
-
-The template can use it like this:
-
-```jinja
-{{ 5 | foo(1, 2) }}          -> 15
-{{ 5 | foo(1, 2, bar=3) }}   -> 8
-```
-
-Macros allow you to also use keyword arguments in the definition. Nunjucks automatically maps the keyword arguments to the ones defined with the macro.
+Macros allow you to also use keyword arguments in the definition, which allows you to specify default values. Nunjucks automatically maps the keyword arguments to the ones defined with the macro.
 
 ```
 {% macro foo(x, y, z=5, w=6) %}
-{{ z }}, {{ w}}
+{{ x }}, {{ y }}, {{ z }}, {{ w}}
 {% endmacro %}
 
-{{ foo(1, 2) }}        -> 5, 6
-{{ foo(1, 2, w=10) }}  -> 5, 10
+{{ foo(1, 2) }}        -> 1, 2, 5, 6
+{{ foo(1, 2, w=10) }}  -> 1, 2, 5, 10
 ```
 
-Note that you *must* pass all of the positional arguments before keyword arguments (`foo(1)` is valid but `foo(1, w=10)` is not). Also, you cannot set a positional argument with a keyword argument like you can in Python (such as `foo(1, y=1)`)
+You can mix positional and keyword arguments with macros. For example, you can specify a positional argument as a keyword argument:
+
+```jinja
+{{ foo(20, y=21) }}     -> 20, 21, 5, 6
+```
+
+You can also simply pass a positional argument in place of a keyword argument:
+
+```jinja
+{{ foo(5, 6, 7, 8) }}   -> 5, 6, 7, 8
+```
+
+In this way, you can "skip" positional arguments:
+
+```jinja
+{{ foo(8, z=7) }}      -> 8, , 7, 6
+```
 
 ## Comments
 
