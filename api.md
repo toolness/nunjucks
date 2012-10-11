@@ -13,7 +13,7 @@ about the `Environment` in
 [jinja2](http://jinja.pocoo.org/docs/api/#basics)).
 
 The `Environment` constructor takes an optional list of
-[loaders](#loaders). You can pass a single loader or an array of
+loaders. You can pass a single loader or an array of
 loaders. Loaders specify how to load templates, whether its from the
 file system, a database, or some other source.
 
