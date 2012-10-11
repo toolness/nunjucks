@@ -170,6 +170,27 @@ A message for you: {{ message|shorten }}
 A message for you: {{ message|shorten(20) }}
 ```
 
+### Keyword/Default Arguments
+
+As described in the [templating section](/templating#Keyword-Arguments), nunjucks supports keyword/default arguments. You can write a normal javascript filter that leverages them.
+
+All keyword arguments are passed in as a hash as the last argument. This is a filter `foo` that uses keyword arguments:
+
+```js
+env.registerFilter('foo', function(num, x, y, kwargs) {
+   return num + (kwargs.bar || 10);
+})
+```
+
+The template can use it like this:
+
+```jinja
+{{ 5 | foo(1, 2) }}          -> 15
+{{ 5 | foo(1, 2, bar=3) }}   -> 8
+```
+
+You *must* pass all of the positional arguments before keyword arguments (`foo(1)` is valid but `foo(1, bar=10)` is not). Also, you cannot set a positional argument with a keyword argument like you can in Python (such as `foo(1, y=1)`)
+
 ## Custom Tags
 
 Currently you cannot create custom tags. This will be easy to do but I
