@@ -127,7 +127,7 @@ Now `field` is available to be called like a normal function:
 
 Keyword/default arguments are available. See [keyword arguments](/templating#Keyword-Arguments) for a more detailed explanation.
 
-You can [import](/templating#import) macros from other templates, allowing you to reuse them freely across your project.
+You can [import](/templating#Import) macros from other templates, allowing you to reuse them freely across your project.
 
 ### Set
 
