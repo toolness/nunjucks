@@ -42,7 +42,7 @@ With [robust browser-side support](/api#Using-Nunjucks-in-the-Browser) you can n
 
 `npm install nunjucks`
 
-The current version is v0.1.5 ([changelog](http://nunjucks.tumblr.com/post/33376448796/v0-1-5-macros-keyword-arguments-bugfixes)).
+The current version is v0.1.6 ([changelog](http://nunjucks.tumblr.com/post/35641526923/v0-1-6-undefined-handling-bugfixes)).
 
 <span class="small">There are zero dependencies so node compatibility should be good, not sure exactly what version it requires but it's known to work on v0.7.1.</span>
 
