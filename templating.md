@@ -21,6 +21,8 @@ This looks up `username` from the context and displays it. Variable names can ha
 
 These two forms to the exact same thing, just like javascript.
 
+If a value is `undefined` or `null`, nothing is displayed. The same behavior occurs when referencing undefined or null objects. The following all output nothing if `foo` is undefined: `{{ foo }}`, `{{ foo.bar }}`, `{{ foo.bar.baz }}`.
+
 ## Filters
 
 Filters are essentially functions that can be applied to variables. They are called with a pipe operator (`|`) and can take arguments.
