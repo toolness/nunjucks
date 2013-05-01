@@ -5,7 +5,10 @@ var modules = {};
 // A simple class system, more documentation to come
 
 function extend(cls, name, props) {
-    var prototype = Object.create(cls.prototype);
+    var F = function() {};
+    F.prototype = cls.prototype;
+
+    var prototype = new F();
     var fnTest = /xyz/.test(function(){ xyz; }) ? /\bparent\b/ : /.*/;
     props = props || {};
 
@@ -178,6 +181,41 @@ exports.toArray = function(obj) {
     return Array.prototype.slice.call(obj);
 };
 
+// https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/indexOf
+var arrayPrototypeIndexOf = function (searchElement /*, fromIndex */ ) {
+    if (this == null) {
+        throw new TypeError();
+    }
+    var t = Object(this);
+    var len = t.length >>> 0;
+    if (len === 0) {
+        return -1;
+    }
+    var n = 0;
+    if (arguments.length > 1) {
+        n = Number(arguments[1]);
+        if (n != n) { // shortcut for verifying if it's NaN
+            n = 0;
+        } else if (n != 0 && n != Infinity && n != -Infinity) {
+            n = (n > 0 || -1) * Math.floor(Math.abs(n));
+        }
+    }
+    if (n >= len) {
+        return -1;
+    }
+    var k = n >= 0 ? n : Math.max(len - Math.abs(n), 0);
+    for (; k < len; k++) {
+        if (k in t && t[k] === searchElement) {
+            return k;
+        }
+    }
+    return -1;
+};
+
+exports.inArray = function(array, searchElement, fromIndex) {
+    return arrayPrototypeIndexOf.call(array, searchElement, fromIndex);
+};
+
 exports.without = function(array) {
     var result = [];
     if (!array) {
@@ -276,6 +314,14 @@ var Frame = Object.extend({
         }
 
         obj[parts[parts.length - 1]] = val;
+    },
+
+    get: function(name) {
+        var val = this.variables[name];
+        if(val !== undefined && val !== null) {
+            return val;
+        }
+        return null;
     },
 
     lookup: function(name) {
@@ -1191,7 +1237,7 @@ var Template = Object.extend({
 
 // var fs = modules["fs"];
 // var src = fs.readFileSync('test.html', 'utf-8');
-// var src = '{{ foo|safe|bar }}';
+// var src = '{% macro foo(x) %}{{ x }}{% endmacro %}{{ foo("<>") }}';
 // var env = new Environment(null, { autoescape: true, dev: true });
 
 // env.addFilter('bar', function(x) {
@@ -1203,7 +1249,7 @@ var Template = Object.extend({
 
 // var tmpl = new Template(src, env);
 // console.log("OUTPUT ---");
-// console.log(tmpl.render({ foo: '<>&' }));
+// console.log(tmpl.render({ bar: '<>&' }));
 
 modules['environment'] = {
     Environment: Environment,
